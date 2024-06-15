@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - composer install
+
+test:
+  stage: test
+  script:
+    - vendor/bin/phpunit
+
+deploy:
+  stage: deploy
+  script:
+    - git pull origin master
+    - composer install
