@@ -31,13 +31,13 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
-  ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: MY_ECS_CLUSTER                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # set this to the path to your Amazon ECS task definition
+  AWS_REGION: us-west-2                  # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: Monitoramento-Saude           # set this to your Amazon ECR repository name
+  ECS_SERVICE: Monitoramento-Saude-service                 # set this to your Amazon ECS service name
+  ECS_CLUSTER: Monitoramento-Saude-cluster                 # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: .aws/MS-task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
+  CONTAINER_NAME: Monitoramento-Saude-container           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 permissions:
@@ -56,9 +56,9 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-access-key-id: ${{ secrets.joao.prudente@fatec.sp.gov.br }}
+        aws-secret-access-key: ${{ secrets.6qNWM2FE#dddK2T }}
+        aws-region: ${{ env.us-west-2  }}
 
     - name: Login to Amazon ECR
       id: login-ecr
